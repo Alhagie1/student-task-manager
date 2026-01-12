@@ -151,7 +151,7 @@ h1 {
   margin-bottom: 0.5em;
 }
 
-.task-description {
+#task-description {
    margin-bottom: 0.7em;
 }
 
@@ -162,10 +162,12 @@ h1 {
 .task-card button {
   padding: 0.5em 1em;
   border-radius: 20px;
+  border: none;
 }
  #tasks-header button {
   padding: 0.3em 0.8em;
   border-radius: 15px;
+  border: none;
  }
 
 .task-card p {
