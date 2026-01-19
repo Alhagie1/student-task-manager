@@ -27,19 +27,19 @@
       
     <div id="task-list">
 
-      <div class="task-card">
-        <div class="task-header">
+      <div id="task-card">
+        <div id="task-header">
           <span id="priority-badge">High Priority</span>
           <span id="status-badge">Pending</span>
         </div>
           
-        <div class="task-body">
+        <div id="task-body">
           <h2 id="task-title">Web Project</h2>
           <p id="task-description">Prepare the project proposal and sumbit it. Colaborate on the project using Git/Github. Present the project. eioei eufheufihe eufieiufehe eufeue eufeue</p>
           <p id="task-date"><strong>Due:</strong> 2023-11-15</p>
         </div>
           
-        <div class="task-footer">
+        <div id="task-footer">
           <button id="edit-btn">Edit</button>
           <button id="complete-btn">Complete</button>
           <button id="delete-btn">Delete</button>
@@ -49,16 +49,16 @@
       
     <footer>
       <p>Do you want to add a new task?
-        <a id="show-task-input" href="#task-input-area">Add Task</a>
+        <a id="show-task-input" href="#task-input-section">Add Task</a>
       </p>
     </footer>
 
   </section>
 
-  <section class="task-input-section container" id="task-input-area" style="display: none;">
+  <section class="task-input-section container" id="task-input-section" style="display: none;">
     
 
-    <h2>New Task</h2>
+    <h2 id="task-input-header">New Task</h2>
     <div id="form-container">
       <form action="index.html" method="Post" id="task-input-form">
         <div >
@@ -93,5 +93,7 @@
     
 
     </section>
+
+    <script src="js/tasks.js"></script>
 </body>
 </html>

@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         } catch (error) {
             console.error('Error:', error);
-            alert('Something went wrong connects to the server.');
+            alert('Something went wrong while connecting to the server.');
         }
     });
 

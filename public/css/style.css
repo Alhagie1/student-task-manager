@@ -131,23 +131,23 @@ h1 {
   gap: 1.5rem;
 }
 
-.task-card {
+#task-card {
   background:  rgb(148, 104, 23);
   color: white;
   border-radius: 30px;
   padding: 1.5rem;
 }
 
-.task-card #task-title {
+#task-card #task-title {
   margin-top: 0px;
   margin-bottom: 0px;
 }
 
-.task-card .task-header {
+#task-card #task-header {
   margin-bottom: 2em;
 }
 
-.task-card #task-title {
+#task-card #task-title {
   margin-bottom: 0.5em;
 }
 
@@ -155,11 +155,11 @@ h1 {
    margin-bottom: 0.7em;
 }
 
-.task-footer {
+#task-footer {
   margin-top: 2em;
 }
 
-.task-card button {
+#task-card button {
   padding: 0.5em 1em;
   border-radius: 20px;
   border: none;
@@ -170,7 +170,7 @@ h1 {
   border: none;
  }
 
-.task-card p {
+#task-card p {
   max-width: 40ch;
 }
 
@@ -181,7 +181,7 @@ h1 {
   align-items: center;
 }
 
-.task-card span {
+#task-card span {
   padding: 0.5em 0.5em;
   margin-right: 15px;
   border-radius: 20px;
@@ -234,7 +234,7 @@ h1 {
   height: 100px;
 }
 
-#task-input-area h2 {
+#task-input-section h2 {
   margin-bottom: 40px; 
   text-align: center;
 }
