@@ -5,9 +5,13 @@ const taskRoutes = require('./routes/task.routes');
 const errorHandler = require('./middlewares/errorHandler');
 
 const app = express();
+const corsOptions = {
+  origin: 'https://verdant-faun-043e73.netlify.app', 
+  optionsSuccessStatus: 200
+};
 
 // Middleware
-app.use(cors({origin:'https://verdant-faun-043e73.netlify.app/'}));
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
