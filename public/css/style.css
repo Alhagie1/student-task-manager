@@ -87,6 +87,7 @@ h1 {
   padding: 1rem;
   cursor: pointer;
   border: none;
+  background: rgb(162, 157, 157);
 }
 
 .auth-section button:hover {
