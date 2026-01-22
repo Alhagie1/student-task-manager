@@ -99,18 +99,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 body: JSON.stringify(loginData)
             });
 
-            const data = await response.json();
+            
 
             if (response.ok) {
+                const data = await response.json();
                 // SUCCESS! 
                 // 1. Saves the token (if the backend sends one) to LocalStorage
                 // This acts like a digital ID card for the next page.
                 if (data.token) {
-                    localStorage.setItem('token', data.token);
+                  localStorage.setItem('token', data.token);
+                  window.location.replace = 'tasks.html';
                 }
 
-                // 2. Redirect to the main app page
-                window.location.href = 'tasks.html';
+                
             } else {
                 alert(data.message || 'Invalid email or password');
             }
