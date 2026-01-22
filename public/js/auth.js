@@ -100,24 +100,26 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             
-
-            if (response.ok) {
-                const data = await response.json();
-                // SUCCESS! 
-                // 1. Saves the token (if the backend sends one) to LocalStorage
-                // This acts like a digital ID card for the next page.
-                if (data.token) {
-                  localStorage.setItem('token', data.token);
-                  window.location.replace = 'tasks.html';
-                }
-
-                
-            } else {
-                alert(data.message || 'Invalid email or password');
+          if (response.ok) {
+            const responseData = await response.json(); 
+    
+            
+            if (responseData.data && responseData.data.token) {
+              localStorage.setItem('token', responseData.data.token);
+              window.location.replace('tasks.html');
+            }       
+            else {
+              console.error("Login succeeded but no token was found in responseData.data.token");
             }
-        } catch (error) {
-            console.error('Error:', error);
-            alert('Unable to login. Please check server.');
+} 
+
+          else {
+                alert(data.message || 'Invalid email or password');
+          }
+        } 
+        catch (error) {
+          console.error('Error:', error);
+          alert('Unable to login. Please check server.');
         }
     });
 });
