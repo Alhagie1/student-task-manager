@@ -1,6 +1,6 @@
 // --- CONFIGURATION ---
 const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-    ? 'http://localhost:5000' : 'https://student-task-manager-ejnp.onrender.com/';
+    ? 'http://localhost:5000' : 'https://student-task-manager-ejnp.onrender.com';
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. SELECT ELEMENTS
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         try {
-            const response = await fetch(`${API_URL}/login`, {
+            const response = await fetch(`${API_URL}api/auth/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(loginData)
