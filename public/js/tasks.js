@@ -1,6 +1,7 @@
 // --- CONFIGURATION ---
 const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-    ? 'http://localhost:5000' : 'https://student-task-manager-ejnp.onrender.com/'; 
+    ? 'http://localhost:5000' 
+    : 'https://student-task-manager-ejnp.onrender.com/api/tasks'; 
 
 // 1. AUTHENTICATION CHECK
 // Before doing anything, check if the user has a token.
@@ -64,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function fetchTasks() {
         try {
             // We must send the token to the backend to prove who we are
-            const response = await fetch(`${API_URL}/tasks`, {
+            const response = await fetch(`${API_URL}/`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}` 
@@ -144,12 +145,12 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         try {
-            let url = `${API_URL}/tasks`;
+            let url = `${API_URL}/`;
             let method = 'POST';
 
             // If we are editing, change URL and Method
             if (currentEditTaskId) {
-                url = `${API_URL}/tasks/:${currentEditTaskId}`;
+                url = `${API_URL}/:${currentEditTaskId}`;
                 method = 'PUT';
             }
 
@@ -178,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if(!confirm('Are you sure?')) return;
 
         try {
-            await fetch(`${API_URL}/tasks/:${id}`, {
+            await fetch(`${API_URL}/:${id}`, {
                 method: 'DELETE',
                 headers: { 'Authorization': `Bearer ${token}` }
             });
@@ -191,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // COMPLETE TASK
     async function completeTask(task, cardElement) {
         try {
-            const response = await fetch(`${API_URL}/tasks/:${task._id}/complete`, {
+            const response = await fetch(`${API_URL}/:${task._id}/complete`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',

@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         try {
-            // Send POST request to /register
+            // Send POST request to /api/auth/register
             const response = await fetch(`${API_URL}/api/auth/register`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -92,26 +92,25 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         try {
-            const response = await fetch(`${API_URL}api/auth/login`, {
+            const response = await fetch(`${API_URL}/api/auth/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(loginData)
             });
 
-            const data = await response.json();
-
             if (response.ok) {
-                // SUCCESS! 
-                // 1. Saves the token (if the backend sends one) to LocalStorage
-                // This acts like a digital ID card for the next page.
-                if (data.token) {
-                    localStorage.setItem('token', data.token);
+                const responseData = await response.json(); 
+                
+                if (responseData.data && responseData.data.token) {
+                    localStorage.setItem('token', responseData.data.token);
+                    window.location.replace('tasks.html');
+                } else {
+                    console.error("Login succeeded but no token was found in responseData.data.token");
+                    alert('Login successful but no token received');
                 }
-
-                // 2. Redirect to the main app page
-                window.location.href = 'tasks.html';
             } else {
-                alert(data.message || 'Invalid email or password');
+                const errorData = await response.json();
+                alert(errorData.message || 'Invalid email or password');
             }
         } catch (error) {
             console.error('Error:', error);
