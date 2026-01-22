@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: inputTitle.value,
             description: inputDesc.value,
             dueDate: inputDate.value,
-            priority: inputPriority.value,
+            priority: inputPriority.value.toLowerCase(),
             status: 'pending' // Default
         };
 
