@@ -19,11 +19,15 @@ const taskSchema = new mongoose.Schema({
     type: String,
     enum: ['low', 'medium', 'high'],
     default: 'medium',
+    lowercase: true,
+    trim: true
   },
   status: {
     type: String,
     enum: ['pending', 'in-progress', 'completed'],
     default: 'pending',
+    lowercase:true,
+    trim:true
   },
   userId: {
     type: mongoose.Schema.Types.ObjectId,

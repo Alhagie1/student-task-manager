@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: inputTitle.value.trim(),
             description: inputDesc.value.trim(),
             dueDate: inputDate.value,
-            priority: inputPriority.value, // convert to lowercase to match schema
+            priority: inputPriority.value, 
             status: 'pending'
         };
 
